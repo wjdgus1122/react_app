@@ -5,6 +5,7 @@ import { NotFound } from "./components/NotFound";
 import { Home } from "./components/pages/homes/Home";
 import { Prouduct } from "./components/pages/sub/Product";
 import { Globalstyle } from "./globalstyle";
+import { homeSectionDb } from "./reactDb";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Globalstyle />
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home homedb={homeSectionDb} />} />
         <Route path="/sub" element={<Prouduct />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
