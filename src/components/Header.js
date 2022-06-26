@@ -10,6 +10,7 @@ import styled from "styled-components";
 
 const SHeader = styled.header`
   width: 100%;
+  position: fixed;
 `;
 const LogoWrap = styled.div`
   width: 100%;
