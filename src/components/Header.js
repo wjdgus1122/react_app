@@ -1,116 +1,113 @@
 import {
   faBars,
   faCartShopping,
-  faHouseFlag,
   faMagnifyingGlass,
+  faStore,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const SHeader = styled.header`
+const SHeader = styled.div`
   width: 100%;
+  background-color: black;
+  color: white;
   position: fixed;
-  top: 0;
-  left: 0;
   z-index: 99;
 `;
-const LogoWrap = styled.div`
-  width: 100%;
+const TopHeader = styled.div`
   height: 57px;
-  padding: 5px 200px;
-  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #eee;
+  padding: 0 220px;
+  a {
+    font-size: 20px;
+    font-weight: 700;
+  }
 `;
-const Logo = styled.div`
-  font-size: 28px;
-  font-weight: 900;
-  color: #1d1d1d;
-  cursor: pointer;
-`;
-const HeaderBtnWrap = styled.div`
+const TopBtnWrap = styled.div`
   width: 220px;
   height: 32px;
-  background-color: lightgray;
-  border-radius: 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  background-color: #333;
+  border-radius: 24px;
+  padding: 2px;
 `;
-const HeaderBtn = styled.div`
-  background-color: lightgray;
-  border-radius: 16px;
+const TopBtn = styled.div`
+  width: 100%;
+  height: 90%;
+  font-size: 12px;
+  font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  background-color: #333;
+  color: white;
+  border-radius: 28px;
   cursor: pointer;
-  &:hover {
+  &:nth-child(1) {
     background-color: white;
-    box-shadow: 0 3px 6px rgb(0 0 0 / 10%);
+    color: #1d1d1d;
   }
 `;
-const MenuWrap = styled.div`
-  width: 100%;
+const BtmHeader = styled.div`
   height: 57px;
-  padding: 5px 200px;
-  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #eee;
+  padding: 0 220px;
 `;
-const TextMenu = styled.div`
-  display: flex;
-`;
-const Menu = styled.div`
-  padding-left: 40px;
-  cursor: pointer;
-  &:nth-child(1) {
-    padding-left: 0;
+const TextMenuWrap = styled.div`
+  a {
+    padding-left: 48px;
+    &:nth-child(1) {
+      padding-left: 0;
+    }
   }
 `;
-const BtmMenu = styled.div`
+const BtmBtnWrap = styled.div`
   svg {
-    font-size: 25px;
     margin-left: 30px;
-    cursor: pointer;
+    font-size: 25px;
+    font-weight: 100;
+    &:nth-child(1) {
+      margin-left: 0;
+    }
   }
 `;
 
 export const Header = () => {
   return (
     <SHeader>
-      <LogoWrap>
-        <Logo>LOGO</Logo>
-        <HeaderBtnWrap>
-          <HeaderBtn>개인</HeaderBtn>
-          <HeaderBtn>기업</HeaderBtn>
-          <HeaderBtn>소상공인</HeaderBtn>
-        </HeaderBtnWrap>
-      </LogoWrap>
-      <MenuWrap>
-        <TextMenu>
-          <Menu>모바일 기기</Menu>
-          <Menu>모바일 요금제</Menu>
-          <Menu>인터넷/IPTV</Menu>
-          <Menu>마이페이지</Menu>
-          <Menu>혜택</Menu>
-          <Menu>고객지원</Menu>
-          <Menu>#유플일상</Menu>
-        </TextMenu>
-        <BtmMenu>
+      <TopHeader>
+        <Link to="/">LG U+</Link>
+        <TopBtnWrap>
+          <TopBtn>개인</TopBtn>
+          <TopBtn>기업</TopBtn>
+          <TopBtn>소상공인</TopBtn>
+        </TopBtnWrap>
+      </TopHeader>
+      <BtmHeader>
+        <TextMenuWrap>
+          <Link to="/product">모바일 기기</Link>
+          <Link to="/price_1">모바일 요금제</Link>
+          <Link to="/price_2">인터넷/IPTV</Link>
+          <Link to="/">마이페이지</Link>
+          <Link to="/">혜택</Link>
+          <Link to="/">고객지원</Link>
+          <Link to="/">#유플일상</Link>
+        </TextMenuWrap>
+        <BtmBtnWrap>
           <FontAwesomeIcon icon={faBars} />
-          <FontAwesomeIcon icon={faHouseFlag} />
+          <FontAwesomeIcon icon={faStore} />
           <FontAwesomeIcon icon={faMagnifyingGlass} />
           <FontAwesomeIcon icon={faCartShopping} />
           <FontAwesomeIcon icon={faUser} />
-        </BtmMenu>
-      </MenuWrap>
+        </BtmBtnWrap>
+      </BtmHeader>
     </SHeader>
   );
 };
